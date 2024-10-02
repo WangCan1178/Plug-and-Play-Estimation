@@ -34,7 +34,7 @@ The contributions of this paper are:
 
   ICL can demonstrate significant advantages in certain tasks when using appropriate LLM services and contexts, such as solving entity linking tasks with the Phi-2 service. But it can be virtually ineffective in other scenarios, like solving web-question tasks with the Llama-7B service
 
-- The intermediate files we obtained in the experiments are recorded in the folder *pkls*, including the embeddings of the LLM service answers, the extracted features, and the accuracy. Use the following code to read it：
+- The intermediate files we obtained in the experiments are recorded in the folder *pkls*, including the embeddings of the LLM service answers, the extracted features, and the accuracy. We gave 55 files from a dataset for example, and use the following code to read it：
 
   ```python
   loaded_data = defaultdict(lambda:defaultdict(list))
