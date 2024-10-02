@@ -1,0 +1,45 @@
+XGBoost
+In this experiment, we used XGBoost's regression model XGBRegressor and specified the objective function as squared error ("reg"). In order to optimize the model performance, we perform hyperparameter tuning. The specific hyperparameters and their value ranges are as follows:
+learning_rate: Values range from 0.01 to 0.5, using a uniform distribution
+max_depth: An integer value ranging from 3 to 10, using a random integer distribution.
+Number of iterations (n_estimators): Integer values, ranging from 100 to 1000, using a random integer distribution
+subsample: The possible values are 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, and 1, indicating the proportion of samples used for training each tree.
+Column sampling ratio (colsample_bytree): This is an optional value that indicates the proportion of features used to train each tree.
+gamma: This value ranges from 0 to 1 and uses a uniform distribution to control whether further splits are made.
+L1 regularization (reg_alpha): Values range from 0 to 1, using a uniform distribution
+L2 regularization (reg_lambda): ranges from 0 to 1 and uses a uniform distribution.
+
+
+KNN
+In this experiment, we used the k-nearest neighbor regression model KNeighborsRegressor. The key hyperparameters of the model are set as follows:
+Number of neighbors (n_neighbors): This value ranges from 1 to 5 and indicates the number of neighbors to consider when making a prediction.
+weights: This specifies the weights of the neighbors for the prediction; common options include:
+uniform: All neighbors have the same weight.
+distance: Close neighbors have more weight and far neighbors have less weight.
+
+
+MLP
+In this experiment, we implemented a Multilayer Perceptron (MLP) model, using the PyTorch framework. The main hyperparameters and structure Settings of the model are as follows.
+Input dimension (input_dim): Specifies the number of features of the input data.
+Hidden layer dimension (hidden_dim): Defaults to 500, which indicates the number of neurons in each hidden layer.
+layers: Specifies the number of hidden layers. The traversal is 1-3 layers.
+Dropout Rate: The drop rate of the dropout layer that is traversed from 0 to 0.3 to prevent overfitting.
+
+
+RandomizedSearchCV 
+For hyperparameter optimization, we use RandomizedSearchCV with the following parameters:
+param_distributions: The distributions containing the hyperparameters described above.
+Number of iterations (n_iter): This is set to 300, which represents the number of parameter combinations to be searched randomly.
+Cross-validation folds (cv): This is set to 5, indicating 5-fold cross-validation.
+Number of parallel jobs (n_jobs): This value is set to -1 to indicate that all available CPU cores are used for computation.
+verbose: This value is set to 0 to indicate that no details should be output.
+
+Randomforest
+In this experiment, we used the random forest regression model, which aims to improve the prediction performance and reduce overfitting. Random forest is an ensemble learning method that combines the predictions of multiple decision trees. Here are the main hyperparameter Settings of the model:
+Number of trees (n_estimators): This specifies the number of decision trees in the forest. The search range is from 50 to 300.
+Maximum depth (max_depth): This limits the maximum depth of each tree, and the search range is None (no depth limit), or 10 to 50.
+min_samples_split: This determines the minimum number of samples required to split on a node. The search range is 1 to 20.
+Minimum leaf node samples (min_samples_leaf): This determines the minimum number of samples required at a leaf node. The search range is 1 to 20.
+Feature selection (max_features): Specifies the number of features to consider when finding the best split. Set to 'sqrt' (square root), 'log2', respectively.
+
+
